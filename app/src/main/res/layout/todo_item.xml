@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/layoutMatchWrap"
+    android:background="@drawable/list_selector">
+
+    <ImageView
+        android:visibility="gone"
+        android:id="@+id/ivDone"
+        style="@style/layoutWrap"
+        android:layout_width="40dp"
+        android:textStyle="bold"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_title_circle"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+    <TextView
+        android:id="@+id/textView_Icon"
+        style="@style/layoutWrap"
+        android:layout_width="40dp"
+        android:textStyle="bold"
+        android:layout_height="40dp"
+        android:background="@drawable/bg_title_circle"
+        android:gravity="center"
+        android:text="A"
+        android:textColor="@color/white"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:id="@+id/linearItemCat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/marginNormal"
+        android:layout_marginRight="@dimen/marginNormal"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/ivRight"
+        app:layout_constraintStart_toEndOf="@+id/textView_Icon"
+
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/textView_titleCat"
+            style="@style/textViewNormal"
+            android:singleLine="true"
+            android:text="Toàn Bộ" />
+
+        <TextView
+            android:id="@+id/textView_contentCat"
+            style="@style/textViewSmallGray"
+            android:singleLine="true"
+            android:text="Toàn Bộ" />
+
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/ivRight"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_right_arrow_eee"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/linearItemCat"
+        app:layout_constraintTop_toTopOf="parent" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

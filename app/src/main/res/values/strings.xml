@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">TodoList</string>
+    <string name="login">Đăng nhập</string>
+    <string name="register">Đăng kí</string>
+    <string name="appLanguage">vn</string>
+    <string name="title">Nhập công việc</string>
+    <string name="info">Mô tả</string>
+    <string name="time">Thời gian : </string>
+
+    <string name="titleAlarm">You have subjects starting at</string>
+</resources>

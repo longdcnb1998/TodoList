@@ -1,0 +1,49 @@
+<resources>
+    <dimen name="standardPadding">20dp</dimen>
+    <dimen name="marginBig">49dp</dimen>
+    <dimen name="marginLarge">36dp</dimen>
+    <dimen name="marginNormal">12dp</dimen>
+    <dimen name="marginSmall">4dp</dimen>
+    <dimen name="paddingBig">40dp</dimen>
+    <dimen name="paddingNormal">12dp</dimen>
+    <dimen name="paddingLarge">24dp</dimen>
+    <dimen name="paddingSmall">8dp</dimen>
+    <dimen name="radiusNormal">5dp</dimen>
+    <dimen name="strokeNormal">1dp</dimen>
+    <dimen name="textSizeLargeX">20sp</dimen>
+    <dimen name="textSizeSplash">40sp</dimen>
+    <dimen name="textSizeLarge">18sp</dimen>
+    <dimen name="textSizeNormal">16sp</dimen>
+    <dimen name="textSizeSmall">14sp</dimen>
+    <dimen name="textSizeSmallX">12sp</dimen>
+    <dimen name="textSizeSmallXX">10sp</dimen>
+    <dimen name="widthMenuLeft">260dp</dimen>
+    <dimen name="gifViewScale">1.0px</dimen>
+
+    <dimen name="iconSize">40dp</dimen>
+    <dimen name="iconSizeSmall">32dp</dimen>
+    <!-- Standart dimens for the color wheel -->
+    <dimen name="color_wheel_radius">124dp</dimen>
+    <dimen name="color_wheel_thickness">8dp</dimen>
+    <dimen name="color_center_halo_radius">60dp</dimen>
+    <dimen name="color_center_radius">54dp</dimen>
+    <dimen name="color_pointer_halo_radius">18dp</dimen>
+    <dimen name="color_pointer_radius">14dp</dimen>
+
+    <!-- Standart dimens for the bars -->
+    <dimen name="bar_thickness">4dp</dimen>
+    <dimen name="bar_length">240dp</dimen>
+    <dimen name="bar_pointer_radius">6dp</dimen>
+    <dimen name="bar_pointer_halo_radius">14dp</dimen>
+
+    <dimen name="textsize_standard">20dp</dimen>
+    <dimen name="textsize_middle">16dp</dimen>
+    <dimen name="textsize_small">14dp</dimen>
+    <dimen name="padding_start_small">10dp</dimen>
+    <dimen name="topBar_height">48dp</dimen>
+    <dimen name="common_item_height_small">42dp</dimen>
+    <dimen name="btn_direction">42dp</dimen>
+
+    <dimen name="row_height_cam_setting">42dp</dimen>
+
+</resources>

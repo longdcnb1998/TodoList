@@ -1,0 +1,13 @@
+
+s
+java:S1450#"VRemove the "tvTitle" field and declare it as a local variable in the relevant methods.(Æ¶‡8Ÿ‰Ä¨².
+Y
+java:S1854-"<Remove this useless assignment to local variable "password".(ÍÍó8ÙŞÈ§².
+J
+java:S1481-"-Remove this unused "password" local variable.(ÍÍó8ÙŞÈ§².
+£
+java:S1186J"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø…¨¥ıÿÿÿÿ8°øª§².
+|
+java:S1450"ZRemove the "preferences" field and declare it as a local variable in the relevant methods.(„€Àóûÿÿÿÿ8¯ ò±.
+I
+java:S1068",Remove this unused "listView" private field.(·òáª8¢¸¾”².

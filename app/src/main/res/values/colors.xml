@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+
+    <color name="background">#ffffff</color>
+    <color name="black">#000000</color>
+    <color name="blue">#00a2e4</color>
+    <color name="border">#dddddd</color>
+    <color name="cream">#f5f5f5</color>
+    <color name="crystal">#bb000000</color>
+    <color name="crystalBlack">#22000000</color>
+    <color name="crystalWhite">#22ffffff</color>
+    <color name="gray">#aaaaaa</color>
+    <color name="grayc">#cccccc</color>
+    <color name="grayd">#dddddd</color>
+    <color name="graye">#eeeeee</color>
+    <color name="green">#89c54b</color>
+    <color name="orange">#f6b402</color>
+    <color name="pink">#e91e63</color>
+    <color name="red">#ff4b26</color>
+    <color name="text">#555555</color>
+    <color name="transparent">#00000000</color>
+    <color name="white">#ffffff</color>
+    <color name="whiteAlpha">#88ffffff</color>
+</resources>

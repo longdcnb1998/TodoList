@@ -1,0 +1,45 @@
+
+s
+java:S1104"VMake identifier a static final constant or non-public and provide accessors if needed.(ªıñš8“©±ô±.
+w
+java:S1104"UMake API_LOGIN a static final constant or non-public and provide accessors if needed.(Êƒíùùÿÿÿÿ8‘ÚŒ².
+s
+java:S1104"QMake email a static final constant or non-public and provide accessors if needed.(è˜Æäûÿÿÿÿ8³¡ˆó±.
+q
+java:S1104"OMake jwt a static final constant or non-public and provide accessors if needed.(©‰È˜şÿÿÿÿ8Î’ïò±.
+q
+java:S1104
+"TMake password a static final constant or non-public and provide accessors if needed.(ÅÒôä8¬ç‡ó±.
+v
+java:S1104	"TMake username a static final constant or non-public and provide accessors if needed.(±­ê™ıÿÿÿÿ8ğñ†ó±.
+\
+java:S1118":Add a private constructor to hide the implicit public one.(‹ğé×ıÿÿÿÿ8œ–îò±.
+Q
+java:S1444"/Make this "public static API_LOGIN" field final(Êƒíùùÿÿÿÿ8‘ÚŒ².
+m
+java:S1104"PMake role a static final constant or non-public and provide accessors if needed.(¼ª ¶8í‰ó±.
+v
+java:S3008"TRename this field "API_LOGIN" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Êƒíùùÿÿÿÿ8‘ÚŒ².
+P
+java:S1444"3Make this "public static authorization" field final(±ğÚ8ó¶•§².
+K
+java:S1444")Make this "public static jwt" field final(©‰È˜şÿÿÿÿ8Î’ïò±.
+P
+java:S1444	".Make this "public static username" field final(±­ê™ıÿÿÿÿ8ğñ†ó±.
+K
+java:S1444
+".Make this "public static password" field final(ÅÒôä8¬ç‡ó±.
+u
+java:S1104"XMake API_REGISTER a static final constant or non-public and provide accessors if needed.(Èµá¼8Øñÿò±.
+M
+java:S1444"+Make this "public static email" field final(è˜Æäûÿÿÿÿ8³¡ˆó±.
+G
+java:S1444"*Make this "public static role" field final(¼ª ¶8í‰ó±.
+v
+java:S1104"YMake authorization a static final constant or non-public and provide accessors if needed.(±ğÚ8ó¶•§².
+t
+java:S3008"WRename this field "API_REGISTER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Èµá¼8Øñÿò±.
+O
+java:S1444"2Make this "public static API_REGISTER" field final(Èµá¼8Øñÿò±.
+M
+java:S1444"0Make this "public static identifier" field final(ªıñš8“©±ô±.
