@@ -95,16 +95,8 @@ a
 1app/src/main/res/drawable-v24/bg_button_swipe.xml,4\a\4af6747a937926e31358bbf2bd0a7f9e0787009d
 h
 8app/src/main/res/drawable-v24/ic_launcher_foreground.xml,0\7\078508c831007ccb3938b355f0d30a8368f99a8d
-Y
-)app/src/main/res/layout/activity_main.xml,7\6\76b07e40f24cce093536731477540f12e7da3cb6
-W
-'app/src/main/res/layout/dialog_edit.xml,4\4\441f1e4e03cb734cbe51281090a95dfaa4708094
-X
-(app/src/main/res/layout/dialog_login.xml,2\4\24b806510f18e885958391a42dc9d42411f200c4
 [
 +app/src/main/res/layout/dialog_register.xml,e\e\eee2f91f283658e97ca0101818a0eecb29bd3fcf
-U
-%app/src/main/res/layout/todo_item.xml,8\1\81f3b05c8c3583c5ef00ac4a907f1378ed8b22e6
 U
 %app/src/main/res/layout/ui_header.xml,7\4\74a930c40ece29aa30374364815c345dafe2f467
 b
@@ -123,14 +115,6 @@ s
 Capp/src/main/java/com/example/todolist/adapter/TodoListAdapter.java,9\a\9afa46e6abe8b3c8a80f336dbcf8f5d3f2957bc1
 m
 =app/src/main/java/com/example/todolist/dialog/DialogEdit.java,4\3\43714056e83a93cb6415949a763c23abe5eacd81
-t
-Dapp/src/main/java/com/example/todolist/Notification/AppSettings.java,d\0\d080c3115664a301ea0b708bdd73bba4b046abf1
-q
-Aapp/src/main/java/com/example/todolist/Notification/AppUtils.java,6\6\664e258e73b7b6e522616af7d751f1cb76979454
-
-Oapp/src/main/java/com/example/todolist/Notification/NotificationController.java,b\e\bef71b1aef44b76132e938bb928fccee786b3c6a
-w
-Gapp/src/main/java/com/example/todolist/Notification/RebootReceiver.java,c\c\cc9eeb5340950e0ddc80b08e67e73ec7ad44d184
 i
 9app/src/main/java/com/example/todolist/util/DPIUtils.java,b\a\ba9d79abd9a4e344cea7ba24c0867c9c538491c4
 z
@@ -158,5 +142,7 @@ A
 gradlew.bat,2\a\2a45a911a8f1836b0b6c5b758962572012d8f8c3
 ?
 settings.gradle,0\5\05efc8b1657769a27696d478ded1e95f38737233
-v
-Fapp/src/main/java/com/example/todolist/Notification/AlertReceiver.java,f\7\f7a4e27666461d1a69ce78f8107b82a7afd5aecc
+{
+Kapp/src/main/java/com/example/todolist/notification/NotificationHelper.java,e\7\e7d99e9274d3b3f0a9d902095ec0eb350b9e95d8
+s
+Capp/src/main/java/com/example/todolist/notification/MyReceiver.java,f\e\fef0b65f3039cb0acfd89ef6cbf01138a73b9f76

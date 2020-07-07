@@ -4,16 +4,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".view.activity.MainActivity">
 
-    <RelativeLayout
+    <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/header"
+        style="@style/layoutMatchWrap"
+        android:background="@color/blue"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:id="@+id/header"
-        xmlns:android="http://schemas.android.com/apk/res/android"
-        style="@style/layoutMatchWrap"
-        android:background="@color/blue">
+        app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/tvTitle"
@@ -33,11 +32,11 @@
             android:layout_marginLeft="@dimen/marginSmall"
             android:background="@android:color/transparent"
             android:contentDescription="@null"
-            android:padding="@dimen/paddingNormal"
-            android:scaleType="centerCrop" />
+            android:padding="@dimen/paddingSmall"
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_menu" />
 
         <ImageButton
-            android:src="@drawable/ic_baseline_add"
             android:id="@+id/ivRight"
             android:layout_width="@dimen/iconSize"
             android:layout_height="@dimen/iconSize"
@@ -48,7 +47,8 @@
             android:background="@android:color/transparent"
             android:contentDescription="@null"
             android:padding="@dimen/paddingSmall"
-            android:scaleType="centerCrop" />
+            android:scaleType="centerCrop"
+            android:src="@drawable/ic_baseline_add" />
 
         <ProgressBar
             android:id="@+id/pbProgress"
@@ -74,9 +74,36 @@
         android:id="@+id/lvToDoList"
         android:layout_width="0dp"
         android:layout_height="0dp"
+        android:padding="@dimen/paddingSmall"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/header" />
+
+    <LinearLayout
+        android:id="@+id/btnLogout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/custom_bg_logout"
+        android:orientation="horizontal"
+        android:visibility="invisible"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/header">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:paddingLeft="@dimen/paddingSmall"
+            android:src="@drawable/ic_baseline_person" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="@dimen/marginNormal"
+            android:text="Đăng xuất" />
+    </LinearLayout>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -1,24 +1,24 @@
 
-O
-java:S1128"-Remove this unused import 'java.util.Locale'.(åğ×±ûÿÿÿÿ8ÈÕ·².
-H
-java:S16596"&Declare "tv_title" on a separate line.(Šµ±ßÿÿÿÿÿ8•ı¨².
-Œ
-java:S1319"oThe type of the "list" object should be an interface such as "List" rather than the implementation "ArrayList".(ÃÏ­ñ8³ù¨².
-J
-java:S16596"(Declare "tv_content" on a separate line.(Šµ±ßÿÿÿÿÿ8•ı¨².
-H
-java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8ÛĞÔ·².
-U
-java:S1128"3Remove this unused import 'android.graphics.Color'.(øãíòşÿÿÿÿ8·¬©².
-r	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Šµ±ßÿÿÿÿÿ8•ı¨².
-T
-java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8ÈÕ·².
-r	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Šµ±ßÿÿÿÿÿ8•ı¨².
 R
 java:S1128"5Remove this unused import 'java.text.ParseException'.(ñ®ï•8ÛĞÔ·².
-r	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Šµ±ßÿÿÿÿÿ8•ı¨².
-N
-java:S1128"1Remove this unused import 'java.text.DateFormat'.(÷Œá¼8ÈÕ·².
+T
+java:S1128"7Remove this unused import 'java.text.SimpleDateFormat'.(ú¡ÙÛ8ÈÕ·².
+U
+java:S1128"3Remove this unused import 'android.graphics.Color'.(øãíòşÿÿÿÿ8·¬©².
 i
 java:S1128"GRemove this unused import 'android.graphics.drawable.GradientDrawable'.(·¸óşÿÿÿÿ8·¬©².
+H
+java:S16596"&Declare "tv_title" on a separate line.(Šµ±ßÿÿÿÿÿ8•ı¨².
+J
+java:S16596"(Declare "tv_content" on a separate line.(Šµ±ßÿÿÿÿÿ8•ı¨².
+r	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Šµ±ßÿÿÿÿÿ8•ı¨².
+O
+java:S1128"-Remove this unused import 'java.util.Locale'.(åğ×±ûÿÿÿÿ8ÈÕ·².
+Œ
+java:S1319"oThe type of the "list" object should be an interface such as "List" rather than the implementation "ArrayList".(ÃÏ­ñ8³ù¨².
+r	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Šµ±ßÿÿÿÿÿ8•ı¨².
+r	java:S1176"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Šµ±ßÿÿÿÿÿ8•ı¨².
+H
+java:S1128"+Remove this unused import 'java.util.Date'.(¸…¼ü8ÛĞÔ·².
+N
+java:S1128"1Remove this unused import 'java.text.DateFormat'.(÷Œá¼8ÈÕ·².

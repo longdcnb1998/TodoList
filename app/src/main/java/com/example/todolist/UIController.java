@@ -7,6 +7,11 @@ import android.view.View.OnClickListener;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.example.todolist.util.AppSettings;
+import com.example.todolist.util.AppUtils;
+import com.example.todolist.util.ColorController;
+import com.example.todolist.util.ColorUtils;
+
 
 /**
  * @author hoangcaomobile

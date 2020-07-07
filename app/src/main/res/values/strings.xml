@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">TodoList</string>
+    <string name="app_name">Todoist</string>
     <string name="login">Đăng nhập</string>
     <string name="register">Đăng kí</string>
     <string name="appLanguage">vn</string>

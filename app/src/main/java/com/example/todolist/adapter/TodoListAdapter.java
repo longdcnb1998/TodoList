@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import androidx.constraintlayout.widget.ConstraintLayout;
+
 import com.example.todolist.R;
 import com.example.todolist.model.Todo;
 
@@ -46,23 +48,27 @@ public class TodoListAdapter extends BaseAdapter {
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        if (convertView == null){
-            convertView = LayoutInflater.from(context).inflate(R.layout.todo_item,parent,false);
+        if (convertView == null) {
+            convertView = LayoutInflater.from(context).inflate(R.layout.todo_item, parent, false);
 
         }
-
-        TextView tv_icon,tv_title,tv_content;
+        ConstraintLayout layout;
+        TextView tv_icon, tv_title, tv_content;
         tv_icon = convertView.findViewById(R.id.textView_Icon);
         tv_title = convertView.findViewById(R.id.textView_titleCat);
         tv_content = convertView.findViewById(R.id.textView_contentCat);
+        layout = convertView.findViewById(R.id.ltItem);
 
         Todo todo = (Todo) getItem(position);
-        if (todo != null){
+        if (todo != null) {
             String title = todo.getName();
-            String icon = title.toUpperCase().charAt(0)+"";
+            String icon = title.toUpperCase().charAt(0) + "";
             tv_title.setText(title);
             tv_icon.setText(icon);
             tv_content.setText(todo.getTimeStamp());
+            if (todo.isStatus()) {
+                layout.setBackgroundColor(context.getResources().getColor(R.color.item_done));
+            }
         }
         return convertView;
     }

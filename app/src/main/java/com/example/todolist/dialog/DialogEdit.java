@@ -47,12 +47,13 @@ public class DialogEdit extends DialogFragment {
     private Callback callback;
 
     private EditText edtName,edtDes;
-    private TextView tvSelectTime;
+    private TextView tvSelectTime,tvSelectDate;
     private int id ;
     private ImageButton ivRight;
     private long time;
     private TextView tvTitle;
     private Todo todo;
+    int year,month, day, hours, min;
 
     public DialogEdit(Todo todo,Callback callback) {
         this.todo = todo;
@@ -81,10 +82,14 @@ public class DialogEdit extends DialogFragment {
         edtName = dialog.findViewById(R.id.edt_title);
         edtDes = dialog.findViewById(R.id.edt_info);
         tvSelectTime = dialog.findViewById(R.id.tv_timeStart);
+        tvSelectDate = dialog.findViewById(R.id.tvDate);
         tvTitle = dialog.findViewById(R.id.tvTitle);
         tvTitle.setText("Sửa công việc");
         edtName.setText(todo.getName());
-        tvSelectTime.setText(String.valueOf(todo.getTimeStamp()));
+        String time[] = todo.getTimeStamp().split(" ");
+
+        tvSelectTime.setText(time[1]);
+        tvSelectDate.setText(time[0]);
     }
 
     private void initData() {
@@ -126,7 +131,7 @@ public class DialogEdit extends DialogFragment {
                                 public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
                                     if (response.isSuccessful()){
                                         if (callback != null){
-                                            callback.onSuccess(todo);
+                                            callback.onSuccess( year, month, day, hours, min);
                                             dismiss();
                                         }
                                     }
@@ -170,6 +175,6 @@ public class DialogEdit extends DialogFragment {
         });
     }
     public interface Callback{
-        void onSuccess(Todo todo);
+        void onSuccess(int year, int month, int day, int hours, int min);
     }
 }

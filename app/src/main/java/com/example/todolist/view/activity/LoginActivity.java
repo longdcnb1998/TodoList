@@ -1,25 +1,21 @@
-package com.example.todolist.dialog;
+package com.example.todolist.view.activity;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.text.style.UnderlineSpan;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.fragment.app.DialogFragment;
-
 import com.example.todolist.APIConnector;
 import com.example.todolist.Define;
 import com.example.todolist.R;
-import com.example.todolist.model.Todo;
+import com.example.todolist.dialog.DialogRegister;
 import com.example.todolist.model.User;
 import com.example.todolist.util.DialogUtils;
 import com.google.gson.Gson;
@@ -34,50 +30,39 @@ import okhttp3.Call;
 import okhttp3.Callback;
 import okhttp3.Response;
 
-public class DialogLogin extends DialogFragment {
+public class LoginActivity extends AppCompatActivity {
 
     private Activity activity;
-    private Dialog dialog;
-    private EditText  edtUsername;
+    private EditText edtUsername;
     private EditText  edtPass;
     private EditText edtEmail;
-    private LoginCallBack loginCallBack;
 
     private Button btnRegister, btnLogin;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
 
-
-    public DialogLogin(LoginCallBack loginCallBack) {
-        this.loginCallBack = loginCallBack;
-    }
-
-    public DialogLogin() {
-
-    }
-
     @Override
-    public void onAttach(@NonNull Activity activity) {
-        super.onAttach(activity);
-        this.activity = activity;
-    }
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_login);
+        preferences = getSharedPreferences("dataLogin", MODE_PRIVATE);
+        String username = preferences.getString("username", "");
+        activity = this;
+        if (username.length() == 0) {
+            initUI();
+            initData();
+        } else {
+            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+            startActivity(intent);
+        }
 
-    @NonNull
-    @Override
-    public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-        dialog = DialogUtils.getNewDialog(activity);
-        dialog.setCancelable(false);
-        dialog.setContentView(R.layout.dialog_login);
-        initUI();
-        initData();
-        return dialog;
     }
 
     private void initUI() {
-        btnLogin = dialog.findViewById(R.id.btnLogin);
-        btnRegister = dialog.findViewById(R.id.btnRegister);
-        edtUsername = dialog.findViewById(R.id.edtUsername);
-        edtPass = dialog.findViewById(R.id.edtPass);
+        btnLogin = findViewById(R.id.btnLogin);
+        btnRegister = findViewById(R.id.btnRegister);
+        edtUsername = findViewById(R.id.edtUsername);
+        edtPass = findViewById(R.id.edtPass);
         preferences = activity.getSharedPreferences("dataLogin", Context.MODE_PRIVATE);
         editor = preferences.edit();
     }
@@ -86,8 +71,8 @@ public class DialogLogin extends DialogFragment {
         btnRegister.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (DialogUtils.enableShowDialogFragment(getChildFragmentManager(),DialogRegister.class.getSimpleName())){
-                    new DialogRegister().show(getChildFragmentManager(),DialogRegister.class.getSimpleName());
+                if (DialogUtils.enableShowDialogFragment(getSupportFragmentManager(), DialogRegister.class.getSimpleName())){
+                    new DialogRegister().show(getSupportFragmentManager(),DialogRegister.class.getSimpleName());
                 }
             }
         });
@@ -124,23 +109,21 @@ public class DialogLogin extends DialogFragment {
                                             activity.runOnUiThread(new Runnable() {
                                                 @Override
                                                 public void run() {
-                                                    if (loginCallBack != null){
-                                                        loginCallBack.onLoginSuccess(user);
-                                                    }
+                                                    Intent intent = new Intent(LoginActivity.this,MainActivity.class);
+                                                    startActivity(intent);
                                                 }
                                             });
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
-                                        dismiss();
                                     }
                                     else {
-                                       activity.runOnUiThread(new Runnable() {
-                                           @Override
-                                           public void run() {
-                                               Toast.makeText(activity, "Something wrong", Toast.LENGTH_SHORT).show();
-                                           }
-                                       });
+                                        activity.runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                Toast.makeText(activity, "Something wrong", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
                                     }
                                 }
                             });
@@ -168,9 +151,5 @@ public class DialogLogin extends DialogFragment {
             Toast.makeText(activity, "Thông tin chưa đúng", Toast.LENGTH_SHORT).show();
         }
         return object;
-    }
-
-    public interface LoginCallBack {
-        void onLoginSuccess(User user);
     }
 }

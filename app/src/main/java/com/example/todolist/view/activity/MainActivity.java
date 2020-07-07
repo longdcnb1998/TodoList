@@ -1,8 +1,4 @@
-package com.example.todolist;
-
-import androidx.annotation.RequiresApi;
-import androidx.appcompat.app.AlertDialog;
-import androidx.appcompat.app.AppCompatActivity;
+package com.example.todolist.view.activity;
 
 import android.app.Activity;
 import android.app.AlarmManager;
@@ -17,22 +13,32 @@ import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.todolist.Notification.AlertReceiver;
+import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AlertDialog;
+import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.todolist.APIConnector;
+import com.example.todolist.AlertReceiver;
+import com.example.todolist.util.ColorUtils;
+import com.example.todolist.Define;
+import com.example.todolist.R;
 import com.example.todolist.adapter.TodoListAdapter;
 import com.example.todolist.dialog.DialogAdd;
 import com.example.todolist.dialog.DialogEdit;
 import com.example.todolist.dialog.DialogLogin;
 import com.example.todolist.model.Todo;
-import com.example.todolist.model.User;
 import com.example.todolist.swipemenulistview.SwipeMenu;
 import com.example.todolist.swipemenulistview.SwipeMenuCreator;
 import com.example.todolist.swipemenulistview.SwipeMenuItem;
 import com.example.todolist.swipemenulistview.SwipeMenuListView;
 import com.example.todolist.util.DPIUtils;
 import com.example.todolist.util.DialogUtils;
+import com.google.gson.Gson;
 
 import org.jetbrains.annotations.NotNull;
 import org.json.JSONArray;
@@ -60,10 +66,14 @@ public class MainActivity extends AppCompatActivity {
     private String jwt;
     private Activity activity;
     private ImageButton ivAdd;
+    private ImageView ivMenu;
     private TextView tvTitle;
     private SwipeMenuListView listView;
     private TodoListAdapter adapter;
     private ArrayList<Todo> listTodo;
+    private LinearLayout btnLogout;
+    private boolean show = false;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -79,21 +89,7 @@ public class MainActivity extends AppCompatActivity {
             initUI();
             initData();
             initClick();
-        } else {
-            if (DialogUtils.enableShowDialogFragment(getSupportFragmentManager(), DialogLogin.class.getSimpleName())) {
-                new DialogLogin(new DialogLogin.LoginCallBack() {
-                    @Override
-                    public void onLoginSuccess(User user) {
-                        userID = user.getId();
-                        jwt = preferences.getString(Define.jwt, "");
-                        initUI();
-                        initData();
-                        initClick();
-                    }
-                }).show(getSupportFragmentManager(), DialogLogin.class.getSimpleName());
-            }
         }
-
     }
 
     private void initClick() {
@@ -102,37 +98,61 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
                 if (DialogUtils.enableShowDialogFragment(getSupportFragmentManager(), DialogAdd.class.getSimpleName())) {
                     new DialogAdd(userID, new DialogAdd.AddCallback() {
+                        @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                         @Override
-                        public void onSuccess(String time,String day) {
+                        public void onSuccess(int year, int month, int day, int hours, int min) {
+                            Calendar c = Calendar.getInstance();
+                            c.set(Calendar.YEAR, year);
+                            c.set(Calendar.MONTH, month);
+                            c.set(Calendar.DAY_OF_MONTH, day);
+                            c.set(Calendar.HOUR_OF_DAY, hours);
+                            c.set(Calendar.MINUTE, min);
+                            c.set(Calendar.SECOND, 0);
+                            startAlarm(c, "Thông báo", "Bạn có công vệc cần phải thực hiện");
+
                             initData();
-                            Todo todo = listTodo.get(listTodo.size() -1);
-                            AlarmManager alarmManager = (AlarmManager) activity.getApplicationContext().getSystemService(Context.ALARM_SERVICE);
-                            final Intent intent = new Intent(activity.getApplicationContext(), AlertReceiver.class);
-                            PendingIntent pending = PendingIntent.getBroadcast(activity.getApplicationContext(),Integer.parseInt(todo.getId()),intent,0);
-                            Calendar calendar = Calendar.getInstance();
-                            String[] cal = time.split(":");
-                            int hours_alarm = Integer.parseInt(cal[0]);
-                            int minute_alarm = Integer.parseInt(cal[1]);
-                            calendar.set(Calendar.DAY_OF_MONTH, Integer.parseInt(day));
-                            calendar.set(Calendar.HOUR_OF_DAY,hours_alarm);
-                            calendar.set(Calendar.MINUTE, minute_alarm);
-                            calendar.set(Calendar.SECOND, 0);
-                            calendar.set(Calendar.MILLISECOND, 0);
-                            intent.putExtra("id",todo.getId());
-                            startAlarm(calendar,pending,alarmManager);
                         }
                     }).show(getSupportFragmentManager(), DialogAdd.class.getSimpleName());
                 }
             }
         });
+
+        btnLogout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                SharedPreferences.Editor editor = preferences.edit();
+                editor.putString("username", "");
+                editor.putString("password", "");
+                editor.putInt("id", -1);
+                editor.apply();
+                Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+                intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY);
+                startActivity(intent);
+                finish();
+            }
+        });
+        ivMenu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!show) {
+                    show = true;
+                    btnLogout.setVisibility(View.VISIBLE);
+                } else {
+                    show = false;
+                    btnLogout.setVisibility(View.INVISIBLE);
+                }
+
+            }
+        });
     }
 
     private void initUI() {
+        btnLogout = findViewById(R.id.btnLogout);
         ivAdd = findViewById(R.id.ivRight);
         tvTitle = findViewById(R.id.tvTitle);
         listView = findViewById(R.id.lvToDoList);
         tvTitle.setText(activity.getString(R.string.app_name));
-
+        ivMenu = findViewById(R.id.ivLeft);
         SwipeMenuCreator creator = new SwipeMenuCreator() {
 
             @Override
@@ -148,9 +168,9 @@ public class MainActivity extends AppCompatActivity {
                 // delete item
                 SwipeMenuItem delete = new SwipeMenuItem(activity);
                 delete.setBackgroundResource(R.drawable.bg_button_swipe);
-                delete.setIconColor(ColorUtils.getColor(activity, R.color.red));
+                delete.setIconColor(ColorUtils.getColor(activity, R.color.green));
                 delete.setWidth(DPIUtils.dpToPx(activity, 65));
-                delete.setIcon(R.mipmap.ic_trash);
+                delete.setIcon(R.mipmap.ic_done);
                 menu.addMenuItem(delete);
 
             }
@@ -191,11 +211,11 @@ public class MainActivity extends AppCompatActivity {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     private void parseData(String response) {
-        if (response != null){
+        if (response != null) {
             listTodo = new ArrayList<>();
             try {
                 JSONArray array = new JSONArray(response);
-                for (int i =0 ;i< array.length();i++){
+                for (int i = 0; i < array.length(); i++) {
                     JSONObject object = array.getJSONObject(i);
                     String id = object.getString("id");
                     String name = object.getString("name");
@@ -211,7 +231,7 @@ public class MainActivity extends AppCompatActivity {
                     String todayAsString = df.format(date);
                     long millis = date.getTime();
 
-                    Todo todo = new Todo(name,status,null,millis,userID);
+                    Todo todo = new Todo(name, status, null, millis, userID);
                     todo.setTimeStamp(todayAsString);
                     todo.setId(id);
                     listTodo.add(todo);
@@ -230,34 +250,36 @@ public class MainActivity extends AppCompatActivity {
     }
 
     private void initListTodo() {
-        if (listTodo != null ){
-            adapter = new TodoListAdapter(activity,listTodo);
+        if (listTodo != null) {
+            adapter = new TodoListAdapter(activity, listTodo);
             listView.setAdapter(adapter);
         }
 
         listView.setOnMenuItemClickListener(new SwipeMenuListView.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(final int position, SwipeMenu menu, int index) {
-                switch (index){
-                    case 0 :
-                        if (DialogUtils.enableShowDialogFragment(getSupportFragmentManager(), DialogEdit.class.getSimpleName())){
+                switch (index) {
+                    case 0:
+                        if (DialogUtils.enableShowDialogFragment(getSupportFragmentManager(), DialogEdit.class.getSimpleName())) {
                             new DialogEdit(listTodo.get(position), new DialogEdit.Callback() {
                                 @Override
-                                public void onSuccess(Todo todo) {
+                                public void onSuccess(int year, int month, int day, int hours, int min) {
                                     initData();
                                 }
-                            }).show(getSupportFragmentManager(),DialogEdit.class.getSimpleName());
+                            }).show(getSupportFragmentManager(), DialogEdit.class.getSimpleName());
                         }
                         break;
                     case 1:
                         AlertDialog.Builder builder = new AlertDialog.Builder((activity));
-                        builder.setMessage("Bạn có chắc chắn muốn xóa công việc ?");
+                        builder.setMessage("Bạn có chắc chắn hoàn thành công việc này không ?");
 
                         // add a button
-                        builder.setPositiveButton("Xóa", new DialogInterface.OnClickListener() {
+                        builder.setPositiveButton("Đồng ý", new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                DeleteTodo(position);
+//                                DeleteTodo(position);
+                                listTodo.get(position).setStatus(true);
+                                UpdateTodo(listTodo.get(position));
                             }
                         });
 
@@ -289,19 +311,54 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    private void UpdateTodo(final Todo todo) {
+        Gson gson = new Gson();
+        final String json = gson.toJson(todo);
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                APIConnector.put(Define.API_EDIT + todo.getId(), json, new okhttp3.Callback() {
+                    @Override
+                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
+
+                    }
+
+                    @Override
+                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                        if (response.isSuccessful()) {
+                           activity.runOnUiThread(new Runnable() {
+                               @Override
+                               public void run() {
+                                   adapter.notifyDataSetChanged();
+                               }
+                           });
+                        } else {
+                            activity.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    Toast.makeText(activity, "Something wrong", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        }
+                    }
+                });
+            }
+        }).start();
+    }
+
     private void DeleteTodo(final int position) {
         new Thread(new Runnable() {
             @Override
             public void run() {
-              APIConnector.delete(Define.API_DELETE + listTodo.get(position).getId(), new Callback() {
-                  @Override
-                  public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                      e.printStackTrace();
-                  }
+                APIConnector.delete(Define.API_DELETE + listTodo.get(position).getId(), new Callback() {
+                    @Override
+                    public void onFailure(@NotNull Call call, @NotNull IOException e) {
+                        e.printStackTrace();
+                    }
 
-                  @Override
-                  public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                        if (response.isSuccessful()){
+                    @Override
+                    public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
+                        if (response.isSuccessful()) {
                             activity.runOnUiThread(new Runnable() {
                                 @Override
                                 public void run() {
@@ -309,37 +366,33 @@ public class MainActivity extends AppCompatActivity {
                                     adapter.notifyDataSetChanged();
                                 }
                             });
-                        }
-                        else {
+                        } else {
                             Toast.makeText(activity, "Something wrong", Toast.LENGTH_SHORT).show();
                         }
-                  }
-              });
+                    }
+                });
             }
         }).start();
     }
 
-
-    private void startAlarm(Calendar calendar, PendingIntent pending, AlarmManager alarmManager) {
-        Calendar now = Calendar.getInstance();
-        Log.d("DayofWeek", now.get(Calendar.DAY_OF_WEEK) + " ");
-        if (calendar.before(Calendar.getInstance())) {
-            calendar.add(Calendar.DATE, 7);
-        }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7, pending);
-        }
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void startAlarm(Calendar c, String a, String b) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);// lấy dịch vụ hệ thống
+        Intent intent = new Intent(this, AlertReceiver.class);
+        intent.putExtra("a", a);
+        intent.putExtra("b", b);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 2, intent, 0);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent); //Exact độ chính xác
     }
-    public void cancelAlarm(int id, Intent intent){
-        PendingIntent pending = PendingIntent.getBroadcast(activity.getApplicationContext(),id,intent,PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) activity.getApplicationContext().getSystemService(Context.ALARM_SERVICE);
-        alarmManager.cancel(pending);
 
-    }
-    public void deleteAllAlarm(int id){
-        Intent intent =  new Intent(activity.getApplicationContext(), AlertReceiver.class);
-        PendingIntent pending = PendingIntent.getBroadcast(activity.getApplicationContext(),id,intent,PendingIntent.FLAG_CANCEL_CURRENT);
-        AlarmManager alarmManager = (AlarmManager) activity.getApplicationContext().getSystemService(Context.ALARM_SERVICE);
-        alarmManager.cancel(pending);
+    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
+    private void cancelAlarm(Calendar c, String a, String b) {
+        AlarmManager alarmManager = (AlarmManager) getSystemService(Context.ALARM_SERVICE);// lấy dịch vụ hệ thống
+        Intent intent = new Intent(this, AlertReceiver.class);
+        intent.putExtra("a", a);
+        intent.putExtra("b", b);
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(this, 0, intent, 0);
+        alarmManager.setExact(AlarmManager.RTC_WAKEUP, c.getTimeInMillis(), pendingIntent); //Exact độ chính xác
+
     }
 }

@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_margin="@dimen/marginBig"
+        android:textColor="@color/blue"
+        android:text="@string/app_name"
+        android:textSize="@dimen/textSizeLargeX"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:id="@+id/edtUsername"
+        android:hint="Username"
+        android:layout_margin="@dimen/marginBig"
+        app:layout_constraintTop_toBottomOf="@+id/tvTitle"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/editTextNormal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <EditText
+        android:inputType="textPassword"
+        android:id="@+id/edtPass"
+        android:hint="Password"
+        android:layout_margin="@dimen/marginBig"
+        app:layout_constraintTop_toBottomOf="@+id/edtUsername"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        style="@style/editTextNormal"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/blue"
+        android:background="@drawable/bg_button_normal"
+        android:id="@+id/btnLogin"
+        android:layout_margin="@dimen/marginBig"
+        app:layout_constraintTop_toBottomOf="@+id/edtPass"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:text="@string/login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <Button
+        android:textStyle="bold"
+        android:textAllCaps="false"
+        android:textColor="@color/blue"
+        android:background="@drawable/bg_button_normal"
+        android:id="@+id/btnRegister"
+        android:layout_margin="@dimen/marginBig"
+        app:layout_constraintTop_toBottomOf="@+id/edtPass"
+        app:layout_constraintStart_toStartOf="parent"
+        android:text="@string/register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <TextView
+        android:layout_margin="@dimen/marginBig"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:textColor="@color/gray"
+        android:textSize="@dimen/textSizeNormal"
+        android:text="Coppyright@ 2020 by team 07  "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

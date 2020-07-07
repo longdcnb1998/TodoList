@@ -1,9 +1,14 @@
 package com.example.todolist.dialog;
 
 import android.app.Activity;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
 import android.app.Dialog;
+import android.app.PendingIntent;
 import android.app.TimePickerDialog;
+import android.content.Context;
+import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -16,6 +21,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.annotation.RequiresApi;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.todolist.APIConnector;
@@ -28,8 +34,6 @@ import com.google.gson.Gson;
 import org.jetbrains.annotations.NotNull;
 
 import java.io.IOException;
-import java.sql.Timestamp;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -43,16 +47,15 @@ public class DialogAdd extends DialogFragment {
 
     private Activity activity;
     private Dialog dialog;
-    private EditText edtName,edtDes;
-    private TextView tvSelectDate,tvSelectHours;
-    private int id ;
+    private EditText edtName, edtDes;
+    private TextView tvSelectDate, tvSelectHours;
+    private int id;
     private ImageButton ivRight;
-    private long time;
     private TextView tvTitle;
     private AddCallback addCallback;
-    private int TodoDay;
+    private int year, month, day, hours, min;
 
-    public DialogAdd(int id,AddCallback addCallback) {
+    public DialogAdd(int id, AddCallback addCallback) {
         this.id = id;
         this.addCallback = addCallback;
     }
@@ -66,7 +69,7 @@ public class DialogAdd extends DialogFragment {
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
-      dialog = DialogUtils.getNewDialog(activity,false,activity.getResources().getColor(R.color.blue));
+        dialog = DialogUtils.getNewDialog(activity, false, activity.getResources().getColor(R.color.blue));
         dialog.setCancelable(false);
         dialog.setContentView(R.layout.dialog_add);
         intiUI();
@@ -83,12 +86,12 @@ public class DialogAdd extends DialogFragment {
         tvTitle = dialog.findViewById(R.id.tvTitle);
         tvTitle.setText("Thêm công việc");
         final Calendar mcurrentTime = Calendar.getInstance();
-        int year = mcurrentTime.get(Calendar.YEAR);
-        int month = mcurrentTime.get(Calendar.MONTH);
-        int day = mcurrentTime.get(Calendar.DAY_OF_MONTH);
-        int hours = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-        int min = mcurrentTime.get(Calendar.MINUTE);
-        tvSelectDate.setText(day + "/"+(month+1) +"/"+year);
+         year = mcurrentTime.get(Calendar.YEAR);
+         month = mcurrentTime.get(Calendar.MONTH);
+         day = mcurrentTime.get(Calendar.DAY_OF_MONTH);
+         hours = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+         min = mcurrentTime.get(Calendar.MINUTE);
+        tvSelectDate.setText(day + "/" + (month + 1) + "/" + year);
         if (min < 10) {
             tvSelectHours.setText(hours + ":0" + min);
         } else tvSelectHours.setText(hours + ":" + min);
@@ -99,17 +102,19 @@ public class DialogAdd extends DialogFragment {
             @Override
             public void onClick(View v) {
                 final Calendar mcurrentTime = Calendar.getInstance();
-                int year = mcurrentTime.get(Calendar.YEAR);
-                int month = mcurrentTime.get(Calendar.MONTH);
-                final int day = mcurrentTime.get(Calendar.DAY_OF_MONTH);
+                year = mcurrentTime.get(Calendar.YEAR);
+                month = mcurrentTime.get(Calendar.MONTH);
+                day = mcurrentTime.get(Calendar.DAY_OF_MONTH);
 
                 DatePickerDialog pickerDialog = new DatePickerDialog(activity, new DatePickerDialog.OnDateSetListener() {
                     @Override
-                    public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                        tvSelectDate.setText(dayOfMonth + "/"+(month+1) +"/"+year);
-                        TodoDay = dayOfMonth;
+                    public void onDateSet(DatePicker view, int year1, int month1, int dayOfMonth) {
+                        year = year1;
+                        month = month1 + 1;
+                        day = dayOfMonth;
+                        tvSelectDate.setText(dayOfMonth + "/" + (month1 + 1) + "/" + year1);
                     }
-                },year,month,day);
+                }, year, month, day);
 
                 pickerDialog.show();
             }
@@ -118,16 +123,18 @@ public class DialogAdd extends DialogFragment {
             @Override
             public void onClick(View v) {
                 final Calendar mcurrentTime = Calendar.getInstance();
-                int hours = mcurrentTime.get(Calendar.HOUR_OF_DAY);
-                int min = mcurrentTime.get(Calendar.MINUTE);
+                hours = mcurrentTime.get(Calendar.HOUR_OF_DAY);
+                min = mcurrentTime.get(Calendar.MINUTE);
                 TimePickerDialog pickerDialog = new TimePickerDialog(activity, new TimePickerDialog.OnTimeSetListener() {
+                    @RequiresApi(api = Build.VERSION_CODES.KITKAT)
                     @Override
                     public void onTimeSet(TimePicker view, int hourOfDay, int minute) {
+                        hours = hourOfDay; min = minute;
                         if (minute < 10) {
                             tvSelectHours.setText(hourOfDay + ":0" + minute);
                         } else tvSelectHours.setText(hourOfDay + ":" + minute);
                     }
-                },hours,min,true);
+                }, hours, min, true);
 
                 pickerDialog.show();
             }
@@ -138,25 +145,22 @@ public class DialogAdd extends DialogFragment {
             public void onClick(View v) {
                 String name = edtName.getText().toString().trim();
                 String des = edtDes.getText().toString().trim();
-                String startDateString =tvSelectDate.getText().toString();
-                if (name.length() > 0 && des.length() > 0 && tvSelectDate.getText().toString().length() > 0){
-                    DateFormat df = new SimpleDateFormat("dd/MM/yyyy");
+                String startDateString = tvSelectDate.getText().toString() + " " + tvSelectHours.getText().toString();
+                if (name.length() > 0 && des.length() > 0 && tvSelectDate.getText().toString().length() > 0) {
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy HH:mm");
+                    long millis = 0;
                     Date date = null;
                     try {
-                        date = df.parse(startDateString);
-                        time = date.getTime();
-                        new Timestamp(time);
-                        String newDateString = df.format(date);
-                        System.out.println(newDateString);
+                        date = sdf.parse(startDateString);
+                        millis = date.getTime();
+                        ;
                     } catch (ParseException e) {
                         e.printStackTrace();
                     }
-
-                    final Todo todo = new Todo(name,false,null,time,id);
+                    final Todo todo = new Todo(name, false, null, millis, id);
                     Gson gson = new Gson();
                     final String json = gson.toJson(todo);
                     todo.setTimeStamp(tvSelectHours.getText().toString().trim());
-                    Log.d("LongDinhAdd",json);
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -168,34 +172,30 @@ public class DialogAdd extends DialogFragment {
 
                                 @Override
                                 public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                                    if (response.isSuccessful()){
-                                      activity.runOnUiThread(new Runnable() {
-                                          @Override
-                                          public void run() {
-                                              if (addCallback != null){
-                                                if (todo != null){
-                                                    addCallback.onSuccess(tvSelectHours.getText().toString().trim(), String.valueOf(TodoDay));
+                                    if (response.isSuccessful()) {
+                                        activity.runOnUiThread(new Runnable() {
+                                            @Override
+                                            public void run() {
+                                                if (addCallback != null) {
+                                                    addCallback.onSuccess(year,month,day,hours,min);
+                                                    dismiss();
                                                 }
-                                                  dismiss();
-                                              }
-                                          }
-                                      });
+                                            }
+                                        });
                                     }
                                 }
                             });
                         }
                     }).start();
-                }
-                else {
+                } else {
                     Toast.makeText(activity, "Thông tin chưa đúng", Toast.LENGTH_SHORT).show();
                 }
             }
         });
     }
-    public interface AddCallback{
-        void onSuccess(String time, String day);
+
+
+    public interface AddCallback {
+        void onSuccess(int year, int month, int day, int hours, int min);
     }
-
-
-
 }

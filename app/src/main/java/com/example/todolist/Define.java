@@ -17,4 +17,5 @@ public class Define {
 
     public static String API_LOGIN ="http://ec2-54-163-16-167.compute-1.amazonaws.com:1337/auth/local";
     public static String authorization ="authorization";
+    public static String user ="user";
 }

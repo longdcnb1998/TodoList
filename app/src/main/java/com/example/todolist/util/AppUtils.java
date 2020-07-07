@@ -1,10 +1,12 @@
-package com.example.todolist;
+package com.example.todolist.util;
 
 import android.app.Activity;
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.content.pm.PackageManager.NameNotFoundException;
+
+import com.example.todolist.R;
 
 public class AppUtils {
 

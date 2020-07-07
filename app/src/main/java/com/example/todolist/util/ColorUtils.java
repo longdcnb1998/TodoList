@@ -1,4 +1,4 @@
-package com.example.todolist;
+package com.example.todolist.util;
 
 import android.annotation.TargetApi;
 import android.content.Context;

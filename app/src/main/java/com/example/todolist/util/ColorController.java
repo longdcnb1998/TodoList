@@ -1,4 +1,4 @@
-package com.example.todolist;
+package com.example.todolist.util;
 
 import android.content.Context;
 import android.graphics.PorterDuff;
@@ -8,6 +8,8 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import com.example.todolist.R;
 
 /**
  * @author hoangcaomobile

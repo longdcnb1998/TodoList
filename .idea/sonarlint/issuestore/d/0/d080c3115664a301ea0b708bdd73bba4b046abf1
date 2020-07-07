@@ -1,13 +1,0 @@
-
-v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ş¥ó8ÌĞ«¸².
-{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÙÜšùúÿÿÿÿ8ÌĞ«¸².
-{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ŞÕ…‘øÿÿÿÿ8ÌĞ«¸².
-v	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(åä¸Õ8ÌĞ«¸².
-o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïğ„¬
-{	java:S115
-"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ï¦üøÿÿÿÿ8ÌĞ«¸².
-{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(„‹Ëµşÿÿÿÿ8ÌĞ«¸².
-v	java:S115	"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ğëç£8ÌĞ«¸².
-{	java:S115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Îê¯¦üÿÿÿÿ8ÌĞ«¸².
-W
-java:S1118":Add a private constructor to hide the implicit public one.(ñÜİå8ÌĞ«¸².

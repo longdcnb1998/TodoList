@@ -1,15 +1,27 @@
 
+>
+java:S16594"!Declare "day" on a separate line.(úğ‘8®÷İÍ².
+>
+java:S16594"!Declare "min" on a separate line.(úğ‘8®÷İÍ².
+F
+java:S1148™"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8Ğ«“Í².
+@
+java:S16594"#Declare "hours" on a separate line.(úğ‘8®÷İÍ².
+?
+java:S1116—"Remove this empty statement.(Åñ­õşÿÿÿÿ8³ù”Í².
 s
-java:S14503"VRemove the "tvTitle" field and declare it as a local variable in the relevant methods.(Æ¶‡8ÅŒçª².
+java:S14502"VRemove the "tvTitle" field and declare it as a local variable in the relevant methods.(Æ¶‡8ÅŒçª².
+@
+java:S16594"#Declare "month" on a separate line.(úğ‘8®÷İÍ².
+N
+java:S1128 "1Remove this unused import 'java.text.DateFormat'.(÷Œá¼8Ó™‘Í².
+K
+java:S1128"/Remove this unused import 'java.sql.Timestamp'.(èò½+8Ó™‘Í².
 M
 java:S1659/"+Declare "tvSelectHours" on a separate line.(Ş½ÜÀùÿÿÿÿ8İ®¶².
 o
-java:S3776a"RRefactor this method to reduce its Cognitive Complexity from 31 to the 15 allowed.(§Ì©8ú•Æª².
-F
-java:S1148˜"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8­¥Á¶².
-[	java:S106–"9Replace this use of System.out or System.err by a logger.(Øø÷·şÿÿÿÿ8­¥Á¶².
+java:S3776`"RRefactor this method to reduce its Cognitive Complexity from 23 to the 15 allowed.(§Ì©8ú•Æª².
 ¤
-java:S1186¥"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø…¨¥ıÿÿÿÿ8­¥Á¶².
+java:S1186¥"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø…¨¥ıÿÿÿÿ8ö“Í².
 A
 java:S1659."$Declare "edtDes" on a separate line.(®ü˜˜8Ò¦².
-n	java:S1165"RRename this field "TodoDay" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ûøäæ8Ôúà¸².

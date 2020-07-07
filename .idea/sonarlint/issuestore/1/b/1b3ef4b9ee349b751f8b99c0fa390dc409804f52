@@ -1,17 +1,13 @@
 
-m	java:S117i"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Ó¶À8•¯Ç¹².
-n
-java:S1301ç"KReplace this "switch" statement by "if" statements to increase readability.(øãş•ÿÿÿÿÿ8ã¿À·².
+p	java:S100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥æúÿÿÿÿ8”ÉĞÎ².
+F
+java:S1148¢"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8”ÉĞÎ².
 s
 java:S1450>"VRemove the "tvTitle" field and declare it as a local variable in the relevant methods.(Æ¶‡8ã¿À·².
-p	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥æúÿÿÿÿ8ã¿À·².
-F
-java:S1148¡"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ã¿À·².
 i
-java:S2184Ä"FCast one of the operands of this multiplication operation to a "long".(Üš’¬şÿÿÿÿ8öÇ·².
-D	java:S131ç""Add a default case to this switch.(øãş•ÿÿÿÿÿ8ã¿À·².
+java:S2184Å"FCast one of the operands of this multiplication operation to a "long".(Üš’¬şÿÿÿÿ8”ÉĞÎ².
+n
+java:S1301è"KReplace this "switch" statement by "if" statements to increase readability.(øãş•ÿÿÿÿÿ8”ÉĞÎ².
 F
-java:S1148Ÿ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ã¿À·².
-l	java:S117h"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø—Ä8•¯Ç¹².
-|
-java:S14509"ZRemove the "preferences" field and declare it as a local variable in the relevant methods.(„€Àóûÿÿÿÿ8ã¿À·².
+java:S1148 "#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8”ÉĞÎ².
+D	java:S131è""Add a default case to this switch.(øãş•ÿÿÿÿÿ8”ÉĞÎ².

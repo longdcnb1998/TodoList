@@ -2,8 +2,9 @@ package com.example.todolist.util;
 
 import android.content.Context;
 
-public class AppSettings {
+import com.example.todolist.DataController;
 
+public class AppSettings {
     private static final String appColor = "appColor";
     private static final String appDefaultColor = "appDefaultColor";
     private static final String appTheme = "appTheme";
@@ -24,7 +25,10 @@ public class AppSettings {
     // BeenLove: -65441
     // ScreenRecorder: #ff5252, -44462
     // EventCountdown: -10766113
+    // Forum: #cdbf00, -3293440
     // Mirror: #d59f63, -2777245
+    // MP3Cutter: #555555, -11184811
+    // WifiFree: #0f93ef, -15756305
 
     // AudioRecorder: #f45035, -765899
     // AutumnLiveWallpaer: #de7738, -2197704
@@ -39,45 +43,45 @@ public class AppSettings {
     // Weather: #4c8fcf, -11759665
 
     public static void setAppColor(Context context, int color) {
-        DataController.saveData(context, appColor, color);
+        com.example.todolist.DataController.saveData(context, appColor, color);
     }
     public static int getAppColor(Context context) {
-        return DataController.getData(context, appColor, 0);
+        return com.example.todolist.DataController.getData(context, appColor, 0);
     }
 
     public static void setAppDefaultColor(Context context, int color) {
-        DataController.saveData(context, appDefaultColor, color);
+        com.example.todolist.DataController.saveData(context, appDefaultColor, color);
     }
     public static int getAppDefaultColor(Context context) {
-        return DataController.getData(context, appDefaultColor, 0);
+        return com.example.todolist.DataController.getData(context, appDefaultColor, 0);
     }
 
     public static void setAppTheme(Context context, int theme) {
-        DataController.saveData(context, appTheme, theme);
+        com.example.todolist.DataController.saveData(context, appTheme, theme);
     }
     public static int getAppTheme(Context context) {
-        return DataController.getData(context, appTheme, 0);
+        return com.example.todolist.DataController.getData(context, appTheme, 0);
     }
     public static boolean isLightTheme(Context context) {
         return getAppTheme(context) == appThemeLight;
     }
 
     public static void setAppPassword(Context context, String password) {
-        DataController.saveData(context, appPassword, password);
+        com.example.todolist.DataController.saveData(context, appPassword, password);
     }
     public static String getAppPassword(Context context) {
-        return DataController.getData(context, appPassword, "");
+        return com.example.todolist.DataController.getData(context, appPassword, "");
     }
 
     public static void setFullScreen(Context context, boolean isEnable) {
-        DataController.saveData(context, fullScreen, isEnable);
+        com.example.todolist.DataController.saveData(context, fullScreen, isEnable);
     }
     public static boolean isFullScreen(Context context) {
-        return DataController.getData(context, fullScreen, false);
+        return com.example.todolist.DataController.getData(context, fullScreen, false);
     }
 
     public static void setConfirmExit(Context context, boolean enable) {
-        DataController.saveData(context, confirmExit, enable);
+        com.example.todolist.DataController.saveData(context, confirmExit, enable);
     }
 
     public static boolean isConfirmExit(Context context) {

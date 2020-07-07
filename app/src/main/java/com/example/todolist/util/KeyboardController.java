@@ -1,4 +1,4 @@
-package com.example.todolist;
+package com.example.todolist.util;
 
 import android.content.Context;
 import android.view.inputmethod.InputMethodManager;
