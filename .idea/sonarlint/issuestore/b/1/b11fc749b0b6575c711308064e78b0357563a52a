@@ -1,13 +1,13 @@
 
+<	java:S131k""Add a default case to this switch.(ë´åİşÿÿÿÿ
+h
+java:S3776f"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(ºµÇ¨
 j	java:S116"PRename this field "MAX_Y" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Äå´‹úÿÿÿÿ
+U
+java:S1854i":Remove this useless assignment to local variable "action".(ÎŸ€Çúÿÿÿÿ
+W	java:S125€"<This block of commented-out lines of code should be removed.(¬‚ÿÿÿÿÿ
+R
+java:S1874i"7Remove this use of "getActionMasked"; it is deprecated.(ÎŸ€Çúÿÿÿÿ
 j	java:S116"PRename this field "MAX_X" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„‡Çüÿÿÿÿ
 >
 java:S1185a"(Remove this method to simply inherit it.(ÑÆ
-U
-java:S1854i":Remove this useless assignment to local variable "action".(ÎŸ€Çúÿÿÿÿ
-h
-java:S3776f"RRefactor this method to reduce its Cognitive Complexity from 39 to the 15 allowed.(ºµÇ¨
-R
-java:S1874i"7Remove this use of "getActionMasked"; it is deprecated.(ÎŸ€Çúÿÿÿÿ
-<	java:S131k""Add a default case to this switch.(ë´åİşÿÿÿÿ
-W	java:S125€"<This block of commented-out lines of code should be removed.(¬‚ÿÿÿÿÿ

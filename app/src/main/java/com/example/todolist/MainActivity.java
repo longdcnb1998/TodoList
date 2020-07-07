@@ -26,6 +26,7 @@ import com.example.todolist.dialog.DialogAdd;
 import com.example.todolist.dialog.DialogEdit;
 import com.example.todolist.dialog.DialogLogin;
 import com.example.todolist.model.Todo;
+import com.example.todolist.model.User;
 import com.example.todolist.swipemenulistview.SwipeMenu;
 import com.example.todolist.swipemenulistview.SwipeMenuCreator;
 import com.example.todolist.swipemenulistview.SwipeMenuItem;
@@ -80,7 +81,16 @@ public class MainActivity extends AppCompatActivity {
             initClick();
         } else {
             if (DialogUtils.enableShowDialogFragment(getSupportFragmentManager(), DialogLogin.class.getSimpleName())) {
-                new DialogLogin().show(getSupportFragmentManager(), DialogLogin.class.getSimpleName());
+                new DialogLogin(new DialogLogin.LoginCallBack() {
+                    @Override
+                    public void onLoginSuccess(User user) {
+                        userID = user.getId();
+                        jwt = preferences.getString(Define.jwt, "");
+                        initUI();
+                        initData();
+                        initClick();
+                    }
+                }).show(getSupportFragmentManager(), DialogLogin.class.getSimpleName());
             }
         }
 
@@ -315,6 +325,9 @@ public class MainActivity extends AppCompatActivity {
         Log.d("DayofWeek", now.get(Calendar.DAY_OF_WEEK) + " ");
         if (calendar.before(Calendar.getInstance())) {
             calendar.add(Calendar.DATE, 7);
+        }
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            alarmManager.setRepeating(AlarmManager.RTC_WAKEUP, calendar.getTimeInMillis(), AlarmManager.INTERVAL_DAY * 7, pending);
         }
     }
     public void cancelAlarm(int id, Intent intent){

@@ -7,7 +7,7 @@ public class User {
     private String username;
     private String email;
     private String password;
-    private ArrayList<Todo> todos;
+
 
     public User() {
     }
@@ -44,11 +44,4 @@ public class User {
         this.password = password;
     }
 
-    public ArrayList<Todo> getTodos() {
-        return todos;
-    }
-
-    public void setTodos(ArrayList<Todo> todos) {
-        this.todos = todos;
-    }
 }

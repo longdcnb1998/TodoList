@@ -1,13 +1,17 @@
 
+m	java:S117i"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Ó¶À8•¯Ç¹².
+n
+java:S1301ç"KReplace this "switch" statement by "if" statements to increase readability.(øãş•ÿÿÿÿÿ8ã¿À·².
 s
-java:S1450#"VRemove the "tvTitle" field and declare it as a local variable in the relevant methods.(Æ¶‡8Ÿ‰Ä¨².
-Y
-java:S1854-"<Remove this useless assignment to local variable "password".(ÍÍó8ÙŞÈ§².
-J
-java:S1481-"-Remove this unused "password" local variable.(ÍÍó8ÙŞÈ§².
-£
-java:S1186J"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø…¨¥ıÿÿÿÿ8°øª§².
+java:S1450>"VRemove the "tvTitle" field and declare it as a local variable in the relevant methods.(Æ¶‡8ã¿À·².
+p	java:S100š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¥æúÿÿÿÿ8ã¿À·².
+F
+java:S1148¡"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ã¿À·².
+i
+java:S2184Ä"FCast one of the operands of this multiplication operation to a "long".(Üš’¬şÿÿÿÿ8öÇ·².
+D	java:S131ç""Add a default case to this switch.(øãş•ÿÿÿÿÿ8ã¿À·².
+F
+java:S1148Ÿ"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8ã¿À·².
+l	java:S117h"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ø—Ä8•¯Ç¹².
 |
-java:S1450"ZRemove the "preferences" field and declare it as a local variable in the relevant methods.(„€Àóûÿÿÿÿ8¯ ò±.
-I
-java:S1068",Remove this unused "listView" private field.(·òáª8¢¸¾”².
+java:S14509"ZRemove the "preferences" field and declare it as a local variable in the relevant methods.(„€Àóûÿÿÿÿ8ã¿À·².

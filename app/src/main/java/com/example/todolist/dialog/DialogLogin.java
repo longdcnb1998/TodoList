@@ -41,11 +41,16 @@ public class DialogLogin extends DialogFragment {
     private EditText  edtUsername;
     private EditText  edtPass;
     private EditText edtEmail;
-    private CallBack callBack;
+    private LoginCallBack loginCallBack;
 
     private Button btnRegister, btnLogin;
     private SharedPreferences preferences;
     private SharedPreferences.Editor editor;
+
+
+    public DialogLogin(LoginCallBack loginCallBack) {
+        this.loginCallBack = loginCallBack;
+    }
 
     @Override
     public void onAttach(@NonNull Activity activity) {
@@ -105,12 +110,20 @@ public class DialogLogin extends DialogFragment {
                                             String jwt = result.getString(Define.jwt);
                                             String data = result.getString("user");
                                             Gson gson = new Gson();
-                                            User user = gson.fromJson(data, User.class);
+                                            final User user = gson.fromJson(data, User.class);
                                             editor.putString(Define.jwt,jwt);
                                             editor.putString("username",user.getUsername());
                                             editor.putString("password",user.getPassword());
                                             editor.putInt("id",user.getId());
                                             editor.commit();
+                                            activity.runOnUiThread(new Runnable() {
+                                                @Override
+                                                public void run() {
+                                                    if (loginCallBack != null){
+                                                        loginCallBack.onLoginSuccess(user);
+                                                    }
+                                                }
+                                            });
                                         } catch (JSONException e) {
                                             e.printStackTrace();
                                         }
@@ -152,7 +165,7 @@ public class DialogLogin extends DialogFragment {
         return object;
     }
 
-    public interface CallBack {
+    public interface LoginCallBack {
         void onLoginSuccess(User user);
     }
 }

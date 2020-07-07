@@ -1,64 +1,64 @@
 
-u
-java:S1450 "_Remove the "mGestureListener" field and declare it as a local variable in the relevant methods.(â°èØ
-n	java:S116""TRename this field "MIN_FLING" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñø¸Åüÿÿÿÿ
-r	java:S116#"XRename this field "MAX_VELOCITYX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ´‚ïùÿÿÿÿ
-L
-java:S1874$"6Remove this use of "ScrollerCompat"; it is deprecated.(¹àÙÿ
-L
-java:S1874%"6Remove this use of "ScrollerCompat"; it is deprecated.(ÝúÇ“
-H
-java:S1135]"2Complete the task associated to this TODO comment.(…ïœ†
-K
-java:S1874l"6Remove this use of "ScrollerCompat"; it is deprecated.(Ôÿ¥T
-C
-java:S1874l".Remove this use of "create"; it is deprecated.(Ôÿ¥T
-L
-java:S1874p"6Remove this use of "ScrollerCompat"; it is deprecated.(¨¼úÔ
-D
-java:S1874p".Remove this use of "create"; it is deprecated.(¨¼úÔ
-L
-java:S1874s"6Remove this use of "ScrollerCompat"; it is deprecated.(øã×Î
-D
-java:S1874s".Remove this use of "create"; it is deprecated.(øã×Î
+W	java:S125«"<This block of commented-out lines of code should be removed.(ÞÈóüÿÿÿÿ
 Q
 java:S1874w"6Remove this use of "ScrollerCompat"; it is deprecated.(¨èë´øÿÿÿÿ
-I
-java:S1874w".Remove this use of "create"; it is deprecated.(¨èë´øÿÿÿÿ
+V	java:S125;"<This block of commented-out lines of code should be removed.(¿Ãæ®ÿÿÿÿÿ
 D
 java:S1185š"(Remove this method to simply inherit it.(Îè¨ùÿÿÿÿ
-?
-java:S1185Ÿ"(Remove this method to simply inherit it.(Ÿ½Ÿ»
+D
+java:S1874p".Remove this use of "create"; it is deprecated.(¨¼úÔ
+W	java:S125±"<This block of commented-out lines of code should be removed.(ÓËµëúÿÿÿÿ
+L
+java:S1874%"6Remove this use of "ScrollerCompat"; it is deprecated.(ÝúÇ“
+=	java:S131¥""Add a default case to this switch.(ãÁð™øÿÿÿÿ
 S
 java:S1854¯"7Remove this useless assignment to local variable "dis".(¿®À¹ùÿÿÿÿ
-=	java:S131¥""Add a default case to this switch.(ãÁð™øÿÿÿÿ
+V	java:S125b"<This block of commented-out lines of code should be removed.(È«çþøÿÿÿÿ
+W	java:S125ˆ"<This block of commented-out lines of code should be removed.(¢¡ˆðÿÿÿÿÿ
+D
+java:S1874s".Remove this use of "create"; it is deprecated.(øã×Î
+L
+java:S1874s"6Remove this use of "ScrollerCompat"; it is deprecated.(øã×Î
 W
 java:S1874Ü";Remove this use of "computeScrollOffset"; it is deprecated.(Ô ¨¡þÿÿÿÿ
-G
-java:S1874Ý"0Remove this use of "getCurrX"; it is deprecated.(Ý€ßõ
-W
-java:S1874â";Remove this use of "computeScrollOffset"; it is deprecated.(¨ÒÏ¤ÿÿÿÿÿ
-L
-java:S1874ã"0Remove this use of "getCurrX"; it is deprecated.(‡öà™üÿÿÿÿ
 J
 java:S1874ì"3Remove this use of "startScroll"; it is deprecated.(ÐÓçŽ
+G
+java:S1874Ý"0Remove this use of "getCurrX"; it is deprecated.(Ý€ßõ
+r	java:S116#"XRename this field "MAX_VELOCITYX" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Þ´‚ïùÿÿÿÿ
+?
+java:S1185Ÿ"(Remove this method to simply inherit it.(Ÿ½Ÿ»
+L
+java:S1874ã"0Remove this use of "getCurrX"; it is deprecated.(‡öà™üÿÿÿÿ
+R	java:S125¤"<This block of commented-out lines of code should be removed.(è‹Ñ£
+n	java:S116""TRename this field "MIN_FLING" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ñø¸Åüÿÿÿÿ
+O
+java:S1144C"9Remove this unused private "SwipeMenuLayout" constructor.(æóüŸ
 O
 java:S1874ò"3Remove this use of "startScroll"; it is deprecated.(¡­´ìøÿÿÿÿ
+R	java:S125Ž"<This block of commented-out lines of code should be removed.(º²—Û
+W	java:S125"<This block of commented-out lines of code should be removed.(‹Ø¥Èûÿÿÿÿ
 W
 java:S1874ø";Remove this use of "computeScrollOffset"; it is deprecated.(¨ÒÏ¤ÿÿÿÿÿ
 R
 java:S1874ù"6Remove this use of "abortAnimation"; it is deprecated.(÷Í¹šýÿÿÿÿ
-V	java:S125;"<This block of commented-out lines of code should be removed.(¿Ãæ®ÿÿÿÿÿ
-V	java:S125b"<This block of commented-out lines of code should be removed.(È«çþøÿÿÿÿ
-V	java:S125j"<This block of commented-out lines of code should be removed.(Ó‰Ðìúÿÿÿÿ
-W	java:S125ˆ"<This block of commented-out lines of code should be removed.(¢¡ˆðÿÿÿÿÿ
-R	java:S125Ž"<This block of commented-out lines of code should be removed.(º²—Û
-W	java:S125"<This block of commented-out lines of code should be removed.(‹Ø¥Èûÿÿÿÿ
+L
+java:S1874$"6Remove this use of "ScrollerCompat"; it is deprecated.(¹àÙÿ
 R	java:S125“"<This block of commented-out lines of code should be removed.(æä–°
-W	java:S125«"<This block of commented-out lines of code should be removed.(ÞÈóüÿÿÿÿ
-W	java:S125±"<This block of commented-out lines of code should be removed.(ÓËµëúÿÿÿÿ
-R	java:S125¤"<This block of commented-out lines of code should be removed.(è‹Ñ£
+L
+java:S1874p"6Remove this use of "ScrollerCompat"; it is deprecated.(¨¼úÔ
+K
+java:S1874l"6Remove this use of "ScrollerCompat"; it is deprecated.(Ôÿ¥T
+V	java:S125j"<This block of commented-out lines of code should be removed.(Ó‰Ðìúÿÿÿÿ
+C
+java:S1874l".Remove this use of "create"; it is deprecated.(Ôÿ¥T
 O
 java:S1144?"9Remove this unused private "SwipeMenuLayout" constructor.(‰£Ú
-O
-java:S1144C"9Remove this unused private "SwipeMenuLayout" constructor.(æóüŸ
+u
+java:S1450 "_Remove the "mGestureListener" field and declare it as a local variable in the relevant methods.(â°èØ
+H
+java:S1135]"2Complete the task associated to this TODO comment.(…ïœ†
+W
+java:S1874â";Remove this use of "computeScrollOffset"; it is deprecated.(¨ÒÏ¤ÿÿÿÿÿ
+I
+java:S1874w".Remove this use of "create"; it is deprecated.(¨èë´øÿÿÿÿ
