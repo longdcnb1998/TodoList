@@ -1,0 +1,11 @@
+
+E
+java:S1148%"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ñ‹®¸².
+E
+java:S1148/"#Use a logger to log this exception.(€ÉÔ…ýÿÿÿÿ8Ñ‹®¸².
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(ïð„¬
+p
+java:S3008"NRename this field "TAG" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œú¯Øÿÿÿÿÿ8Ñ‹®¸².
+\
+java:S1118
+":Add a private constructor to hide the implicit public one.(Ê¤Û¡ùÿÿÿÿ8Ñ‹®¸².

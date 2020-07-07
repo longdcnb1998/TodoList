@@ -1,0 +1,18 @@
+
+s
+java:S14506"VRemove the "tvTitle" field and declare it as a local variable in the relevant methods.(Æ¶‡8øµ´².
+A
+java:S16591"$Declare "edtDes" on a separate line.(®ü˜˜8öõ´².
+U
+java:S1128"3Remove this unused import 'org.json.JSONException'.(¹Ó·úÿÿÿÿ8çÇµ².
+o
+java:S3776Z"RRefactor this method to reduce its Cognitive Complexity from 19 to the 15 allowed.(§Ì©8’Ú´µ².
+Z	java:S106i"9Replace this use of System.out or System.err by a logger.(Øø÷·şÿÿÿÿ8»ïÉ´².
+O
+java:S1128%"-Remove this unused import 'java.util.Locale'.(åğ×±ûÿÿÿÿ8Éª·².
+£
+java:S1186y"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(ø…¨¥ıÿÿÿÿ8»ïÉ´².
+E
+java:S1148k"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ8»ïÉ´².
+R
+java:S1128"0Remove this unused import 'org.json.JSONObject'.(œÖ´üşÿÿÿÿ8çÇµ².

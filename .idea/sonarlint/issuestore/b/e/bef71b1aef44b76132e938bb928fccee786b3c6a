@@ -1,0 +1,18 @@
+
+R
+java:S1444"7Make this "public static notificationSound" field final(ϊΕηÿÿÿÿÿ
+T
+java:S1444"9Make this "public static notificationVibrate" field final(π„σÿÿÿÿÿ
+k
+java:S3008"URename this field "CHANNEL_ID" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(«λω
+s
+java:S1104"]Make notificationLight a static final constant or non-public and provide accessors if needed.(όγ‡
+o	java:S120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(οπ„¬
+U
+java:S1118":Add a private constructor to hide the implicit public one.(κ–²‚ÿÿÿÿÿ
+x
+java:S1104"]Make notificationSound a static final constant or non-public and provide accessors if needed.(ϊΕηÿÿÿÿÿ
+M
+java:S1444"7Make this "public static notificationLight" field final(όγ‡
+z
+java:S1104"_Make notificationVibrate a static final constant or non-public and provide accessors if needed.(π„σÿÿÿÿÿ
